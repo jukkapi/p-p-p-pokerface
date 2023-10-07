@@ -44,6 +44,11 @@
           (= (replace-ace-and-sort hand) (range 1 6))
           false))))
 
+(defn hand [a-hand]
+  a-hand)
+
+(defn card [a-card]
+  a-card)
 
 (defn straight-flush? [hand]
   (and (straight? hand) (flush? hand)))
@@ -57,7 +62,9 @@
                  [straight? 4]   [flush? 5]
                  [full-house? 6] [four-of-a-kind? 7]
                  [straight-flush? 8]]
-        check (fn [ch] (if ((first ch) hand) (second ch) 0))]
-    (apply max (map check checkers) )))
+        check (fn [ch] (if((first ch) hand)
+                         (second ch)
+                         0))]
+  (apply max (map check checkers))))
 
 
